@@ -13,6 +13,8 @@
         alert("Sinced you annoyed me by clicking and not wanting to do action, I am going to punish you by adding random textt to your screen!");
         randomTextNum++;
     }
+
+    let onHover = false;
 </script>
 
 <Text text="NoTE  APp" minSize={2}/>
@@ -47,9 +49,12 @@ Fusce diam tortor, egestas ut porta nec, pharetra nec ante. Nam dui dui, ultrice
                 <button on:click={() => {}}>
                     <p class=" opacity-5">Click me to submit</p>
                 </button>
-                <button on:click={() => {dialog_open = false}}>
+                <button on:click={() => {dialog_open = false}}
+                    on:mouseenter={() => {onHover = true}}
+                    on:mouseleave={() => {onHover = false}}
+                    >
                     <RandomBg>
-                        <Text text="cancel"/>
+                        <Text text={onHover? "cancel": "submit"}/>
                     </RandomBg>
                 </button>
             </div>

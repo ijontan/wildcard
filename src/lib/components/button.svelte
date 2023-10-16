@@ -40,14 +40,14 @@
     on:keypress={prank}
 >
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <div class={`${running ? " absolute" : ""} p-5`}
+    <div class={`${running ? " absolute" : ""} py-5 -my-5 mx-10`}
         style={`top: ${y}px; left: ${x}px;`}
         on:mousemove={mousemove}
         on:mouseenter={() => running = true}
         on:mouseleave={() => {running = false; x = 0; y = 0;}}
     >
         <RandomBg animated shadowed>
-            <button on:click={onClick} class="  outline-none">
+            <button on:click={onClick} class="  outline-none -mx-10">
                 <Text {text} animated/>
             </button>
         </RandomBg>
