@@ -3,6 +3,7 @@
 
     export let text = "Hello World!";
     export let animated = false;
+    export let minSize = 1;
     let count = 0;
 
     $: chars = text.split("");
@@ -16,7 +17,7 @@
 
     function randomStyle() {
         return `color: rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255});
-                font-size: ${Math.random() * 2 + 1}rem;
+                font-size: ${Math.random() * 2 *minSize + minSize}rem;
                 font-weight: ${Math.random() * 900 + 100};
         `;
     }
@@ -30,6 +31,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 {#key count}
 <p
+    class="flex"
 on:click={onClick}
 >
 {#each chars as char}
