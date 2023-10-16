@@ -1,5 +1,6 @@
 <script lang="ts">
-	import RandomBg from "$lib/components/randomBg.svelte";
+	import Loading from "$lib/components/loading.svelte";
+import RandomBg from "$lib/components/randomBg.svelte";
     import "../app.css";
     import { onMount } from "svelte";
 
@@ -18,6 +19,7 @@
 </div>
     
 <slot/>
+<Loading/>
 
 <style lang="postcss">
 </style>

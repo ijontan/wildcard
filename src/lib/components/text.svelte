@@ -4,6 +4,7 @@
     export let text = "Hello World!";
     export let animated = false;
     export let minSize = 1;
+    export let center = false;
     let count = 0;
 
     $: chars = text.split("");
@@ -31,7 +32,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 {#key count}
 <p
-    class="flex"
+    class={`flex ${center?"items-center": ""}`}
 on:click={onClick}
 >
 {#each chars as char}

@@ -1,6 +1,7 @@
 <script>
 	import { goto } from "$app/navigation";
 	import Button from "$lib/components/button.svelte";
+	import DatePicker from "$lib/components/datePicker.svelte";
 	import Dialog from "$lib/components/dialog.svelte";
 	import RandomBg from "$lib/components/randomBg.svelte";
     import Text from "$lib/components/text.svelte";
@@ -37,10 +38,21 @@ Fusce diam tortor, egestas ut porta nec, pharetra nec ante. Nam dui dui, ultrice
 
 <Dialog show={dialog_open}>
     <RandomBg>
-        <div class=" w-[500px] h-[500px] flex flex-col overflow-y-scroll">
+        <div class=" w-[700px] h-[200px] flex flex-col overflow-y-scroll">
             <TextBox  />
             <TextBox title="Description" />
-            <Button text="click_Me_to_add_new_notes" clickAction={() => {dialog_open = true}} />
+
+            <DatePicker />
+            <div class="flex flex-row justify-between">
+                <button on:click={() => {}}>
+                    <p class=" opacity-5">Click me to submit</p>
+                </button>
+                <button on:click={() => {dialog_open = false}}>
+                    <RandomBg>
+                        <Text text="cancel"/>
+                    </RandomBg>
+                </button>
+            </div>
         </div>
     </RandomBg>
 </Dialog>

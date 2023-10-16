@@ -24,7 +24,7 @@
 
 <div class=" flex gap-5">
     <Text text={title +':'}/>
-    <input type="text" class=" bg-transparent outline-none text-transparent placeholder:text-white/5" placeholder="click me to type" bind:value
+    <input type="text" class=" bg-transparent outline-none text-transparent placeholder:text-white/10" placeholder="click me to type" bind:value
         on:keypress={onType}
     />
 </div>
