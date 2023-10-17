@@ -49,9 +49,9 @@ Fusce diam tortor, egestas ut porta nec, pharetra nec ante. Nam dui dui, ultrice
 
 {#each notes as note}
     <div class="flex">
-        <Text text={note.title}/>
-        <Text text={note.description}/>
-        <Text text={note.date}/>
+        <Text text={note.title} animated={note.title === "animate"}/>
+        <Text text={note.description} animated={note.title === "animate"}/>
+        <Text text={note.date} animated={note.title === "animate"}/>
     </div>
 {/each}
 
