@@ -10,11 +10,11 @@
         e.preventDefault();
         
         if (window.confirm("are you sure you clicking me?")) {
-            window.open($page.url.origin)
+            window.open($page.url.origin + "/feedback/" + text)
             alert("you clicked me!");
             clickAction();
         } else {
-            window.open($page.url.origin)
+            window.open($page.url.origin + "/feedback/" + text)
             alert("you didn't click me!");
             didntClickAction();
         }
@@ -40,7 +40,7 @@
     on:keypress={prank}
 >
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <div class={`${running ? " absolute" : ""} py-5 -my-5 mx-10`}
+    <div class={`${running ? " absolute" : ""} py-[10%] -my-[10%] mx-10`}
         style={`top: ${y}px; left: ${x}px;`}
         on:mousemove={mousemove}
         on:mouseenter={() => running = true}

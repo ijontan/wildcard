@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { goto } from "$app/navigation";
 	import Button from "$lib/components/button.svelte";
 	import DatePicker from "$lib/components/datePicker.svelte";
@@ -6,6 +6,7 @@
 	import RandomBg from "$lib/components/randomBg.svelte";
     import Text from "$lib/components/text.svelte";
 	import TextBox from "$lib/components/textBox.svelte";
+	import type { NoteData } from "$lib/modal/note";
 	
     let dialog_open = false;
     let randomTextNum = 0;
@@ -13,6 +14,14 @@
         alert("Sinced you annoyed me by clicking and not wanting to do action, I am going to punish you by adding random textt to your screen!");
         randomTextNum++;
     }
+
+    let newNote: NoteData = {
+        title: "",
+        description: "",
+        date: "1-1-2000"
+    }
+
+    let notes: NoteData[] = []
 
     let onHover = false;
 </script>
@@ -38,18 +47,40 @@ Fusce diam tortor, egestas ut porta nec, pharetra nec ante. Nam dui dui, ultrice
 `}/>
     {/each}
 
+{#each notes as note}
+    <div class="flex">
+        <Text text={note.title}/>
+        <Text text={note.description}/>
+        <Text text={note.date}/>
+    </div>
+{/each}
+
 <Dialog show={dialog_open}>
     <RandomBg>
         <div class=" w-[700px] h-[200px] flex flex-col overflow-y-scroll">
-            <TextBox  />
-            <TextBox title="Description" />
+            <TextBox  bind:value={newNote.title} />
+            <TextBox title="Description" bind:value={newNote.description} />
 
-            <DatePicker />
+            <DatePicker bind:value={newNote.date} />
             <div class="flex flex-row justify-between">
-                <button on:click={() => {}}>
+                <button on:click={() => {
+                    notes = [...notes, newNote];
+                    newNote = {
+                        title: "",
+                        description: "",
+                        date: "1-1-2000"
+                    }
+                    dialog_open = false
+                }}>
                     <p class=" opacity-5">Click me to submit</p>
                 </button>
-                <button on:click={() => {dialog_open = false}}
+                <button on:click={() => {dialog_open = false
+                newNote = {
+                    title: "",
+                    description: "",
+                    date: "1-1-2000"
+                }
+                }}
                     on:mouseenter={() => {onHover = true}}
                     on:mouseleave={() => {onHover = false}}
                     >
