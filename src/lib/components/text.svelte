@@ -36,7 +36,7 @@
 on:click={onClick}
 >
 {#each chars as char}
-<span class=" tracking-tighter" style={randomStyle()}>{char}</span>
+<span class=" tracking-tighter whitespace-pre" style={randomStyle()}>{char}</span>
 {/each}
 </p>
 {/key}

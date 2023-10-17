@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import Button from "$lib/components/button.svelte";
+	import Char from "$lib/components/char.svelte";
 	import DatePicker from "$lib/components/datePicker.svelte";
 	import Dialog from "$lib/components/dialog.svelte";
 	import RandomBg from "$lib/components/randomBg.svelte";
